@@ -1,0 +1,47 @@
+useState: 
+    const [var, setVar] = useState([
+        {
+        num: 5
+        }
+    ])
+#Initializing the starting value to the value(s) contained in the curly brackets,
+#then also gives the function (setVar) that allows you to change it later
+
+#Practically, you initialize the starting state of some variable for your webpage,
+#then when you want to change it, you use the function associated with it.
+#the 'const' means that var or setVar cannot reference anything else. HOWEVER, the 
+#value of var can still chhange because of setVar, so doesn't mean it can't change at all.
+
+#Thus, the following code
+const handleSend = async (message) => {
+    const newMessage = {
+      message: message,
+      sender: "user"
+    }
+  }
+
+#declares a function handleSend that creates a newMessage containing the
+#variable 'message' and the sender as 'user'. 
+#the async is a funciton modifier that implies that some 
+#asynchronous code is running (chatbot API) that is not here yet
+#The '(message)' is our parameters
+#obviousy the function needs to be const because you wouldn't want your funciton
+#declaration to suddenly change.
+
+Thus, the average function declaration looks like
+
+const someFunction = (parameter1, parameter2) =>{
+    //enter code here...
+}
+
+#ternary operators:
+condition ? expressionIfTrue : expressionIfFalse
+
+e.g 
+
+
+typingIndicator={typing ? <TypingIndicator content="ChatBot is typing" /> : null}
+#the typing indicator property is set to "ChatBot is typing" if 'typing' is true, and to null if false
+
+
+#When running the website, type and enter 'q' to quit/close the server
