@@ -75,8 +75,20 @@ Made basic chat and messaging interface
 Video: https://www.youtube.com/watch?v=Lag9Pj_33hM 
 (idk how much more helpful it is though because we already have all the chatgpt stuff running)
 
-    NEXT TIME:
-        - connect python functions and stuff to the chatbot
-        - my messages should be sent from react to python, processed, and sent back to react
+To run React website: 
+    - cd into the app folder
+    - type: 'npm run dev'
+
+    P.S. When you restart python server, no need to restart react server.
+
+NEXT TIME:
+    - Make it possible to save chat history
+        - Start collecting the messages into the chat history
+        - Also retrieve it whenever server starts up  
+            - Gotta correspond specific user to the chatbot chat history
+    - Make a user login system so that we can have multiple users at the same time  
+    - Make flashcards and flashcard decks possible
+    - Make them saved on the database and retrievable from it
+
 
 
