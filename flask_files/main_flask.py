@@ -1,5 +1,4 @@
 import atexit
-
 from funcs_flask import ChatBot, Terminal
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -8,6 +7,8 @@ from database import Database
 
 app = Flask(__name__) #create the webpage app
 CORS(app)
+
+"""DATABASE SECTION! Comment out if not using
 connection_string = (
     "DRIVER={ODBC Driver 17 for SQL Server};"
     "SERVER=SUNNY_QI_PC\\SQLEXPRESS;"  # Replace with your server name or IP. The double slash is equal to one written slash.
@@ -23,6 +24,7 @@ def shutdown_server(exception=None):
     print("Server is shutting down...")
 
 atexit.register(shutdown_server)
+"""
 
 start_conv_history = [
     {"role": "system", "content": 
@@ -43,8 +45,8 @@ def chatbot_page():
     if user_input[0] == '/':
         return jsonify({'reply': terminal.process_command(user_input)})
     else:
+        #database.get_translogs()  COMMENT OUT IF NOT USING DATABASE
         bot_response = chatbot.generate_response(user_input) # Generate the chatbot's response
-        database.get_translogs()
         return jsonify({'reply': (f"{bot_response}")}) # Display the bot's response
     
 app.run() #put this at the end. Website starts

@@ -14,10 +14,10 @@ html_content = f"""
         <pre>{
             "/help OR /h:             | list all functions\n"
             "/exit OR /e:             | End conversation with chatbot\n"
-            "/jtranslate OR /jt {msg} | translates English into Japanese\n"
-            "/etranslate OR /et {msg} | translates Japanese into English\n"
-            "/add OR /a {word}        | adds word as a flash card\n"
-            "/del OR /d {word}        | delete the flashcard for {word}. Prints an error if word doesn't exist.\n"
+            "/jtranslate OR /jt \{msg\} | translates English into Japanese\n"
+            "/etranslate OR /et \{msg\} | translates Japanese into English\n"
+            "/add OR /a \{word\}        | adds word as a flash card\n"
+            "/del OR /d \{word\}        | delete the flashcard for {word}. Prints an error if word doesn't exist.\n"
             "/flist:                  | list all the flashcards\n"
         }</pre>
     </body>
@@ -100,3 +100,6 @@ class Terminal:
 
         
 #goodbye
+
+
+

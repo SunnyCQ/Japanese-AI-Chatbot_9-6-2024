@@ -1,0 +1,94 @@
+.cs-message--incoming .cs-message__content {
+    color: #000000;
+    background-color: #b485ff;
+    border-radius: 0 .7em .7em .7em;
+}
+
+.cs-message--outgoing .cs-message__content {
+    color: rgb(0, 0, 0);
+    background-color: #3549ff67;
+    border-radius: .7em 0 .7em .7em;
+}
+
+.cs-message-input__content-editor-wrapper{
+    color: rgb(0, 0, 0);
+    background-color: #3549ff67;
+}
+
+.cs-message-input__content-editor{
+    color: rgb(0, 0, 0);
+    background-color: #ffffff67;
+}
+
+.cs-message-input__content-editor-container{
+    color: rgb(0, 0, 0);
+    background-color: #3549ff67;
+}
+
+.data-placeholder {
+    color: #000000; /* Placeholder color */
+    position: absolute; /* Allows you to position it within the contenteditable area */
+    pointer-events: none; /* Prevents mouse events on the placeholder */
+    /* Additional styling if necessary */
+  }
+
+.cs-main-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    overflow: auto;
+    border: solid 20px #0c4e85;
+    border-radius: .7em;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, .87);
+    background-color: #c32b2b;
+    font-size: 1rem;
+}
+
+.help_page {
+    text-align: left; /* Aligns all text to the left */
+}
+  
+.help-text {
+    display: flex; /* Uses flexbox for better alignment */
+    flex-direction: column; /* Stacks items vertically */
+}
+
+.help-text span {
+    display: inline-block; /* Allows the spans to be treated as block elements for padding/margins */
+}
+
+.function-desc {
+    padding-left: 20px; /* Adjust this value to align the description texts */
+    width: 600px; /* Set a fixed width to ensure descriptions start at the same position */
+}
+
+.help_page{
+    height: 500px;
+    overflow: auto;
+    border: solid 20px #000000;
+    border-radius: .7em;
+    box-sizing: border-box;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(68, 68, 68);
+}
+
+.help-text{
+    padding-left: 20px;
+}
+
+#TomoChat_name{
+    font-size: 40px;
+}
+#help-header{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.TomoChat {
+    width: 700px; /* or any desired width */
+    margin: 50px auto; /* Centers the element horizontally */
+}

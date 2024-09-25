@@ -1,42 +1,28 @@
-import { useState } from 'react'
-import './App.css'
-import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator} from "@chatscope/chat-ui-kit-react";
-import {handleMessage} from './async_funcs';
+// App.js
+import React from 'react';
+import './css_files/App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import Home from './Home';
+import TomoChat from './TomoChat';
+import Flashcards from './Flashcards';
+import About from  './About';
+import NavBar from './NavBar'; // Navigation bar component
 
 function App() {
-  const [typing, setTyping] = useState(false);
-  //initializes variable messages and creates setMessages function which we use to change messages
-  const [messages, setMessages] = useState([
-    {
-      //this is the initial state of 'messages'
-      message: "Hello, I am JBot!",
-      sender: "JBot",
-      direction: "incoming"
-    }
-  ])
-
-  //Function declaration
-  const manageMessage = async (message) => {
-    handleMessage(messages, message, setMessages, setTyping);
-  }
-  // handleSend
   return (
-    <div className = "App">
-      <div style = {{ position: "relative", height: "800px", width: "700px"}}>
-        <MainContainer>
-          <ChatContainer>
-            <MessageList typingIndicator={typing ? <TypingIndicator content="ChatBot is typing" /> : null}>
-              {messages.map((message, i) => {
-                return <Message key={i} model={message} />
-              })}
-            </MessageList>
-            <MessageInput placeholder='Type message here' onSend={manageMessage}/> 
-          </ChatContainer>
-        </MainContainer>
+    <Router>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/TomoChat" element={<TomoChat />} />
+          <Route path="/Flashcards" element={<Flashcards />} />
+          <Route path="/About" element={<About />} />
+        </Routes>
       </div>
-    </div>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
