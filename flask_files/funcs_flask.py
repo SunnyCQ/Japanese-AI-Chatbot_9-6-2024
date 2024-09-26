@@ -94,12 +94,64 @@ class Terminal:
         else:
             return ("Invalid Command.")
 
+class Flashcard:
+    def __init__(self, term, definition):
+        self.term = term
+        self.definition = definition
+    
+    def show_front(self):
+        print('Term: ' + self.term)
+    
+    def show_back(self):
+        print('Term: ' + self.term + ' Definition: ' + self.definition)
 
+#Old Flashcard
+"""
+class Flashcard:
+    def __init__(self, term = None, definition = None): #add furigana and ex sentence later
+        if(term is None and definition is None):
+            print("You must provide at least a term or a definition")
+            return #no flashcard is created
+        elif(definition is None):
+            if(self.generate_def(self, term)):
+                self.term = term
+            else:
+                return False#generating definition failed, no card created
+        elif(term is None):
+            if(self.generate_term(self, definition)):
+                self.definition = definition
+            else: 
+                return False
+        else:
+            self.term = term #japanese
+            self.hiragana = definition #english
+        return True
 
+    def edit_term(self, new_term):
+        if(not is_japanese(new_term)):
+            return False #unsuccessful translation
+        self.term = new_term
+        return True
 
-
-        
-#goodbye
-
-
-
+    def edit_def(self, new_definition):
+        if(not is_english(new_definition)):
+            return False
+        self.definition = new_definition
+        return True
+    
+    def generate_term(self, chatbot, definition): #should check if its in english
+        if(not is_english(definition)):
+            return False
+        return self.edit_term(chatbot.jap_to_eng(definition))
+    
+    def generate_def(self, chatbot, term): #should check if its in japanese
+        if(not is_japanese(term)):
+            return False #unsuccessful translation
+        return self.edit_def(chatbot.jap_to_eng(term))
+    
+    def show_front(self):
+        print('Term: ' + self.term)
+    
+    def show_back(self):
+        print('Term: ' + self.term + ' Definition: ' + self.definition)
+"""
