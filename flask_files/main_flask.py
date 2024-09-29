@@ -25,7 +25,6 @@ def shutdown_server(exception=None):
 
 atexit.register(shutdown_server)
 """
-
 start_conv_history = [
     {"role": "system", "content": 
      "You are a Japanese conversation partner and teacher. Your goal is to help English-speaking users learn and discuss Japanese language and culture."
