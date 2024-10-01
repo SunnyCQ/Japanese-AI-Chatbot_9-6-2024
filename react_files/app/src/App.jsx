@@ -52,38 +52,4 @@ function App() {
   );
 }
 
-
-{/* <>
-      {isLoggedIn ?(
-        <Router>
-          <div>
-            <NavBar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/TomoChat" element={<TomoChat />} />
-              <Route path="/Flashcards" element={<Flashcards />} />
-              <Route path="/About" element={<About />} />
-            </Routes>
-          </div>
-        </Router>
-      ):(
-        <Login/>
-      )}
-    </> */}
-
-// function App() {
-//   return (
-        // <Router>
-        //   <div>
-        //     <NavBar />
-        //     <Routes>
-        //       <Route path="/" element={<Home />} />
-        //       <Route path="/TomoChat" element={<TomoChat />} />
-        //       <Route path="/Flashcards" element={<Flashcards />} />
-        //       <Route path="/About" element={<About />} />
-        //     </Routes>
-        //   </div>
-        // </Router>
-//   );
-// }
 export default App;
