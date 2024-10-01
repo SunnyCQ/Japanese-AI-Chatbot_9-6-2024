@@ -3,7 +3,7 @@ import React, { useEffect, useState} from 'react';
 import './css_files/App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth, app } from '../firebase'; // Import your firebase auth instance
+import { auth } from '../firebase'; // Import your firebase auth instance
 
 import Home from './Home';
 import TomoChat from './TomoChat';
@@ -14,19 +14,17 @@ import Login from './Login.jsx';
 
 function App() {
   
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null)
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
       // Listen for authentication state changes
-      console.log("hello")
       const unsubscribe = onAuthStateChanged(auth, (user) => {
           if (user) {
-              setIsLoggedIn(true); // User is signed in
+              setUser(user); // User is signed in
           } else {
-              setIsLoggedIn(false); // User is signed out
+              setUser(null); // User is signed out
           }
-          setLoading(false); // Stop loading after determining auth state
       });
 
       // Cleanup subscription on unmount
@@ -35,7 +33,7 @@ function App() {
 
   return (
     <>
-      {isLoggedIn ?(
+      {user ?(
       <Router>
         <div>
           <NavBar />

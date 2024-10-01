@@ -1,6 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import {doc, setDoc, getFirestore, getDoc, onSnapshot} from 'firebase/firestore';
-import { auth } from '../firebase';
+import {doc, setDoc, getFirestore, getDoc, onSnapshot, collection, addDoc, orderBy, query, serverTimestamp} from 'firebase/firestore';
+import { auth, db } from '../firebase';
 
 const handleSubmit = async (message) => {
     // Send user input to the Python backend
@@ -18,29 +18,27 @@ const handleSubmit = async (message) => {
   };
 
 const handleMessage = async (messages, message, setMessages, setTyping) => {
-    const newMessage = {
-      message: message,
+
+    //Send user data to firebase
+    const msgCollection = collection(db, 'messages');
+    const userRef = await addDoc(msgCollection, {
+      uid: auth.currentUser.uid,
       sender: "user",
-      direction: "outgoing" //show on the right
-    }
+      msg: message,
+      timestamp: serverTimestamp()
+    })
 
-    let newMessages = [...messages, newMessage]; //concacanate all old messages with new one
-    setMessages(newMessages);
     setTyping(true);
-
     const response = await handleSubmit(message);
-    const newResponse = {
-      message: response,
-      sender: "JBot",
-      direction: "incoming"
-    }
-    console.log('newResponse_msg: ' + newResponse.message);
+
+    //Send bot data to firebase
+    const botRef= await addDoc(msgCollection, {
+      uid: "bot",
+      sender: "bot",
+      msg: response,
+      timestamp: serverTimestamp()
+    })
   
-    newMessages = [...newMessages, newResponse]; //concacanate all old messages with new one
-    //update messages
-    
-    console.log('newMessages: ' + newMessages);
-    setMessages(newMessages)
     setTyping(false);
     return;
   }
