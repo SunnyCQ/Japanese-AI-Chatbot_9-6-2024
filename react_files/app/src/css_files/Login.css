@@ -1,0 +1,23 @@
+/* index.css */
+
+.login-button {
+    background-color: #0a459e; /* Google blue */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 20px; /* Padding: top/bottom, left/right */
+    font-size: 30px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Change color on hover */
+.login-button:hover {
+    background-color: #000000; /* Darker blue on hover */
+}
+
+/* Optional: Add focus outline for accessibility */
+.login-button:focus {
+    outline: 2px solid #000000; /* Light gray outline */
+    outline-offset: 2px; /* Space between outline and button */
+}

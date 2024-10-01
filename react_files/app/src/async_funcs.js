@@ -1,3 +1,7 @@
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {doc, setDoc, getFirestore, getDoc, onSnapshot} from 'firebase/firestore';
+import { auth } from '../firebase';
+
 const handleSubmit = async (message) => {
     // Send user input to the Python backend
     const res = await fetch('http://127.0.0.1:5000/chat', {
@@ -41,4 +45,15 @@ const handleMessage = async (messages, message, setMessages, setTyping) => {
     return;
   }
 
-export {handleSubmit, handleMessage};
+
+const handleGoogleLogin = async () => {
+  const provider = new GoogleAuthProvider()
+
+  try {
+    const result = await signInWithPopup(auth, provider)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export {handleSubmit, handleMessage, handleGoogleLogin};
