@@ -1,0 +1,69 @@
+/* Flashcard.css */
+.flashcard {
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e0081;
+    border: 10px solid #000000;
+    cursor: pointer;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.flashcard:hover {
+    transform: scale(1.05);
+}
+
+.flashcard-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flashcard-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.flashcard-buttons button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.flashcard-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Flashcard.css */
+.flashcard {
+    position: relative;
+    padding: 20px;
+    /* Other styles... */
+}
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    padding: 5px 8px;
+    font-size: 16px;
+}

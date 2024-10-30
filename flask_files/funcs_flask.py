@@ -51,13 +51,12 @@ class Terminal:
         self.chatbot = chatbot
 
     def process_command(self, input):
-        # parts = re.split(r'\s+', input, 1)
+
         parts = input.split(' ', 1)
         command = parts[0].lower() #lower to make it consistent
         user_input = parts[1] if len(parts) > 1 and ord(parts[1][0]) != 38 else None
 
         if(command == "/jtranslate" or command == "/jt"):
-            # return (str(len(user_input)) + " input:" + user_input + "|")
             if(user_input != None):
                 return self.chatbot.eng_to_jap(user_input)
             else:
