@@ -37,8 +37,11 @@
   color: white; /* Text color */
   text-decoration: none; /* Removes underline from links */
   padding: 10px 15px; /* Padding for links */
+  margin: 10px;
 }
 
 .navbar a:hover {
   background-color: #555; /* Change background on hover */
+  border-radius: 10px;
+
 }

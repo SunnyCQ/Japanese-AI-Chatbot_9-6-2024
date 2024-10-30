@@ -72,8 +72,8 @@ function TomoChat() {
           <p>
             <span>/jtranslate OR /jt &#123;message&#125;</span> <span className="function-desc">| translates English into Japanese</span><br />
             <span>/etranslate OR /et &#123;message&#125;</span> <span className="function-desc">| translates Japanese into English</span><br />
-            <span>/add_en OR /aen &#123;word&#125;</span> <span className="function-desc">| autogenerates flashcard with english definition only</span><br />
-            <span>/add_jp OR /ajp &#123;word&#125;</span> <span className="function-desc">| autogenerates flashcard with japanese term only</span><br />
+            <span>/add_en OR /aen &#123;English definition&#125;</span> <span className="function-desc">| autogenerates flashcard with english definition only</span><br />
+            <span>/add_jp OR /ajp &#123;Japanese term&#125;</span> <span className="function-desc">| autogenerates flashcard with japanese term only</span><br />
           </p>
         </div>
       </div>
