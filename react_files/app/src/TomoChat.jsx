@@ -72,9 +72,8 @@ function TomoChat() {
           <p>
             <span>/jtranslate OR /jt &#123;message&#125;</span> <span className="function-desc">| translates English into Japanese</span><br />
             <span>/etranslate OR /et &#123;message&#125;</span> <span className="function-desc">| translates Japanese into English</span><br />
-            <span>/add OR /a &#123;word&#125;</span> <span className="function-desc">| adds word as a flash card</span><br />
-            <span>/del OR /d &#123;word&#125;</span> <span className="function-desc">| delete the flashcard for &#123;word&#125;. Prints an error if word doesn't exist</span><br />
-            <span>/flist:</span> <span className="function-desc">| list all the flashcards</span><br />
+            <span>/add_en OR /aen &#123;word&#125;</span> <span className="function-desc">| autogenerates flashcard with english definition only</span><br />
+            <span>/add_jp OR /ajp &#123;word&#125;</span> <span className="function-desc">| autogenerates flashcard with japanese term only</span><br />
           </p>
         </div>
       </div>

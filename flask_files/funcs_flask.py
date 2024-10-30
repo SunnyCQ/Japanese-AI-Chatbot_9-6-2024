@@ -1,6 +1,24 @@
 import os, openai, re
 from dotenv import load_dotenv, find_dotenv #pip install python-dotenv
 
+import firebase_admin
+from firebase_admin import credentials, firestore
+
+cred = credentials.Certificate("/Users/sunnyqi/Library/CloudStorage/OneDrive-Personal/Self-learning and Hobbies/Coding Projects/Japanese-AI-Chatbot_9-6-2024--main/flask_files/tomochat-4ddf8-firebase-adminsdk-qogox-5dcd154fc0.json")  # Replace with your key file path
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+
+def add_flashcard(term, definition):
+    flashcard_data = {
+        "term": term,
+        "def": definition
+    }
+    
+    # Add the flashcard to the "flashcards" collection
+    db.collection("flashcards").add(flashcard_data)
+    return flashcard_data #0 is term, 1 is definition
+
 def is_english(text):
     return bool(re.match(r'^[\x00-\x7F]+$', text))
 
@@ -46,6 +64,20 @@ class ChatBot:
         else:
             return ("Please type in Japanese for this command.")
     
+    def generate_jap_term(self, user_input):
+        if(is_english(user_input)):
+            bot_response = self.generate_response("Print \'" + user_input + " in Japanese (NO FURIGANA OR PROUNUNCIATION). DO NOT PRINT ANYTHING ELSE OTHER THAN THE TERM ITSELF!\'") # Generate the chatbot's response
+            return bot_response.rstrip()
+        else:
+            return ("Please type in English for this command.")
+        
+    def generate_eng_def(self, user_input):
+        if(is_japanese(user_input)):
+            bot_response = self.generate_response("Print \'" + user_input + " in English (ONLY ONLY ONLY THE TRANSLATION). DO NOT PRINT ANYTHING ELSE OTHER THAN THE DEFINITION ITSELF!\'") # Generate the chatbot's response
+            return bot_response.rstrip()
+        else:
+            return ("Please type in Japanese for this command.")
+    
 class Terminal: 
     def __init__(self, chatbot):
         self.chatbot = chatbot
@@ -66,10 +98,20 @@ class Terminal:
                 return self.chatbot.jap_to_eng(user_input)
             else:
                 return ("Please type in the following format: /jt [Japanese text]")
-        elif(command == "/add" or command == "/a"):
-            return ("ADD!")
-        elif(command == "/del" or command == "/d"):
-            return ("DEL!")
+        elif(command == "/add_en" or command == "/aen"):
+            if(user_input != None and is_english(user_input)):
+                generated_term = self.chatbot.generate_jap_term(user_input)
+                add_flashcard(generated_term, user_input)
+                return ("Added (" + generated_term + ", " + user_input + ")")
+            else:
+                return ("Please type in the following format: /add_en [English text]")
+        elif(command == "/add_jp" or command == "/ajp"):
+            if(user_input != None and is_japanese(user_input)):
+                generated_def = self.chatbot.generate_eng_def(user_input)
+                add_flashcard(user_input, generated_def)
+                return ("Added (" + user_input + ", " + generated_def + ")")
+            else:
+                return ("Please type in the following format: /add_en [Japanese text]")
         elif(command == "/flist" or command == "/f"):
             return ("list!")
         else:
