@@ -1,29 +1,6 @@
 import os, openai, re
 from dotenv import load_dotenv, find_dotenv #pip install python-dotenv
 
-html_content = f"""
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Preserve Spaces</title>
-    </head>
-    <body>
-        <pre>{
-            "/help OR /h:             | list all functions\n"
-            "/exit OR /e:             | End conversation with chatbot\n"
-            "/jtranslate OR /jt \{msg\} | translates English into Japanese\n"
-            "/etranslate OR /et \{msg\} | translates Japanese into English\n"
-            "/add OR /a \{word\}        | adds word as a flash card\n"
-            "/del OR /d \{word\}        | delete the flashcard for {word}. Prints an error if word doesn't exist.\n"
-            "/flist:                  | list all the flashcards\n"
-        }</pre>
-    </body>
-    </html>
-    """
-
 def is_english(text):
     return bool(re.match(r'^[\x00-\x7F]+$', text))
 
@@ -74,17 +51,22 @@ class Terminal:
         self.chatbot = chatbot
 
     def process_command(self, input):
+        # parts = re.split(r'\s+', input, 1)
         parts = input.split(' ', 1)
         command = parts[0].lower() #lower to make it consistent
-        user_input = parts[1] if len(parts) > 1 else None
-        if(command == "/help" or command == "/h"):
-            return (html_content)
-        elif(command == "/jtranslate" or command == "/jt"):
-            return self.chatbot.eng_to_jap(user_input)
+        user_input = parts[1] if len(parts) > 1 and ord(parts[1][0]) != 38 else None
+
+        if(command == "/jtranslate" or command == "/jt"):
+            # return (str(len(user_input)) + " input:" + user_input + "|")
+            if(user_input != None):
+                return self.chatbot.eng_to_jap(user_input)
+            else:
+                return ("Please type in the following format: /jt [English text]")
         elif(command == "/etranslate" or command == "/et"):
-            return self.chatbot.jap_to_eng(user_input)
-        elif(command == "/tprev" or command == "/tp"):
-            return ("tp")
+            if(user_input != None):
+                return self.chatbot.jap_to_eng(user_input)
+            else:
+                return ("Please type in the following format: /jt [Japanese text]")
         elif(command == "/add" or command == "/a"):
             return ("ADD!")
         elif(command == "/del" or command == "/d"):
@@ -155,3 +137,26 @@ class Flashcard:
     def show_back(self):
         print('Term: ' + self.term + ' Definition: ' + self.definition)
 """
+
+html_content = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Preserve Spaces</title>
+    </head>
+    <body>
+        <pre>{
+            "/help OR /h:             | list all functions\n"
+            "/exit OR /e:             | End conversation with chatbot\n"
+            "/jtranslate OR /jt \{msg\} | translates English into Japanese\n"
+            "/etranslate OR /et \{msg\} | translates Japanese into English\n"
+            "/add OR /a \{word\}        | adds word as a flash card\n"
+            "/del OR /d \{word\}        | delete the flashcard for {word}. Prints an error if word doesn't exist.\n"
+            "/flist:                  | list all the flashcards\n"
+        }</pre>
+    </body>
+    </html>
+    """

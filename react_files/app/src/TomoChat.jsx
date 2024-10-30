@@ -70,8 +70,6 @@ function TomoChat() {
         <h2 id="help-header"><u>Help</u></h2>
         <div className="help-text">
           <p>
-            <span>/help OR /h:</span> <span className="function-desc">| list all functions</span><br />
-            <span>/exit OR /e:</span> <span className="function-desc">| End conversation with chatbot</span><br />
             <span>/jtranslate OR /jt &#123;message&#125;</span> <span className="function-desc">| translates English into Japanese</span><br />
             <span>/etranslate OR /et &#123;message&#125;</span> <span className="function-desc">| translates Japanese into English</span><br />
             <span>/add OR /a &#123;word&#125;</span> <span className="function-desc">| adds word as a flash card</span><br />
