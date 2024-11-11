@@ -3,8 +3,8 @@ from dotenv import load_dotenv, find_dotenv #pip install python-dotenv
 
 import firebase_admin
 from firebase_admin import credentials, firestore
-
-cred = credentials.Certificate("/Users/sunnyqi/Library/CloudStorage/OneDrive-Personal/Self-learning and Hobbies/Coding Projects/Japanese-AI-Chatbot_9-6-2024--main/flask_files/tomochat-4ddf8-firebase-adminsdk-qogox-5dcd154fc0.json")  # Replace with your key file path
+cred = credentials.Certificate("C:\\Users\\sunny\\OneDrive\\Self-learning and Hobbies\\Coding Projects\\Japanese-AI-Chatbot_9-6-2024--main\\flask_files\\tomochat-4ddf8-firebase-adminsdk-qogox-5dcd154fc0.json")
+# cred = credentials.Certificate("/Users/sunnyqi/Library/CloudStorage/OneDrive-Personal/Self-learning and Hobbies/Coding Projects/Japanese-AI-Chatbot_9-6-2024--main/flask_files/tomochat-4ddf8-firebase-adminsdk-qogox-5dcd154fc0.json")  # Replace with your key file path
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -117,16 +117,16 @@ class Terminal:
         else:
             return ("Invalid Command.")
 
-class Flashcard:
-    def __init__(self, term, definition):
-        self.term = term
-        self.definition = definition
+# class Flashcard:
+#     def __init__(self, term, definition):
+#         self.term = term
+#         self.definition = definition
     
-    def show_front(self):
-        print('Term: ' + self.term)
+#     def show_front(self):
+#         print('Term: ' + self.term)
     
-    def show_back(self):
-        print('Term: ' + self.term + ' Definition: ' + self.definition)
+#     def show_back(self):
+#         print('Term: ' + self.term + ' Definition: ' + self.definition)
 
 #Old Flashcard
 """
@@ -179,25 +179,25 @@ class Flashcard:
         print('Term: ' + self.term + ' Definition: ' + self.definition)
 """
 
-html_content = """
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Preserve Spaces</title>
-    </head>
-    <body>
-        <pre>{
-            "/help OR /h:             | list all functions\n"
-            "/exit OR /e:             | End conversation with chatbot\n"
-            "/jtranslate OR /jt \{msg\} | translates English into Japanese\n"
-            "/etranslate OR /et \{msg\} | translates Japanese into English\n"
-            "/add OR /a \{word\}        | adds word as a flash card\n"
-            "/del OR /d \{word\}        | delete the flashcard for {word}. Prints an error if word doesn't exist.\n"
-            "/flist:                  | list all the flashcards\n"
-        }</pre>
-    </body>
-    </html>
-    """
+# html_content = """
+#     <!DOCTYPE html>
+#     <html lang="en">
+#     <head>
+#         <meta charset="UTF-8">
+#         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+#         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#         <title>Preserve Spaces</title>
+#     </head>
+#     <body>
+#         <pre>{
+#             "/help OR /h:             | list all functions\n"
+#             "/exit OR /e:             | End conversation with chatbot\n"
+#             "/jtranslate OR /jt \{msg\} | translates English into Japanese\n"
+#             "/etranslate OR /et \{msg\} | translates Japanese into English\n"
+#             "/add OR /a \{word\}        | adds word as a flash card\n"
+#             "/del OR /d \{word\}        | delete the flashcard for {word}. Prints an error if word doesn't exist.\n"
+#             "/flist:                  | list all the flashcards\n"
+#         }</pre>
+#     </body>
+#     </html>
+#     """
