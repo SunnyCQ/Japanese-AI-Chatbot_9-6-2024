@@ -3,7 +3,8 @@ from dotenv import load_dotenv, find_dotenv #pip install python-dotenv
 
 import firebase_admin
 from firebase_admin import credentials, firestore
-cred = credentials.Certificate("C:\\Users\\sunny\\OneDrive\\Self-learning and Hobbies\\Coding Projects\\Japanese-AI-Chatbot_9-6-2024--main\\flask_files\\tomochat-4ddf8-firebase-adminsdk-qogox-5dcd154fc0.json")
+cred = credentials.Certificate("./tomochat-4ddf8-firebase-adminsdk-qogox-5dcd154fc0.json")
+# cred = credentials.Certificate("C:\\Users\\sunny\\OneDrive\\Self-learning and Hobbies\\Coding Projects\\Japanese-AI-Chatbot_9-6-2024--main\\flask_files\\tomochat-4ddf8-firebase-adminsdk-qogox-5dcd154fc0.json")
 # cred = credentials.Certificate("/Users/sunnyqi/Library/CloudStorage/OneDrive-Personal/Self-learning and Hobbies/Coding Projects/Japanese-AI-Chatbot_9-6-2024--main/flask_files/tomochat-4ddf8-firebase-adminsdk-qogox-5dcd154fc0.json")  # Replace with your key file path
 firebase_admin.initialize_app(cred)
 

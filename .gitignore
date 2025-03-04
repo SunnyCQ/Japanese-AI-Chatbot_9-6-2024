@@ -1,2 +1,4 @@
 __pycache__/funcs.cpython-312.pyc
 .env
+.venv/pyvenv.cfg
+.venv

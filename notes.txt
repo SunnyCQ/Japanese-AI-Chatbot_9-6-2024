@@ -32,8 +32,6 @@ Delete from word bank:
 List flashcards:
  - type '/list 
 
-
-
 List of things needed:
  - Chatbot (OpenAI API) DONE
  - Python main script DONE
@@ -74,6 +72,10 @@ Made basic chat and messaging interface
 
 Video: https://www.youtube.com/watch?v=Lag9Pj_33hM 
 (idk how much more helpful it is though because we already have all the chatgpt stuff running)
+
+To run the database server:
+    - cd into flask_files
+    - run "python main_flask.py"
 
 To run React website: 
     - cd into the app folder
